@@ -17,9 +17,11 @@ async function getLatestArticle(url) {
   const feed = await parser.parseURL(url);
   return feed.items[0];
 }
- 
-(async () => {
+
+async function run() {
   const article = await getLatestArticle('https://matthewtole.com/feed.xml');
   const result = await renderTemplate('template.md', { article });
   console.log(result);
-})();
+}
+
+module.exports = {run};
