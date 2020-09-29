@@ -3,5 +3,5 @@
 const {run} = require('../');
 
 (async () => {
-  await run()
+  try { await run(); } catch (ex) { console.error(ex);}
 })();

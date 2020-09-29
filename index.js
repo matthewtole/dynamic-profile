@@ -26,10 +26,23 @@ async function updateReadme(contents) {
   });
 }
 
+async function loadConfig() {
+  return new Promise((resolve, reject) => {
+    fs.readFile('profile.json', (err, data) => {
+      if (err) { return reject(err); }
+      return JSON.parse(data.toString());
+    });
+  });
+}
+
 async function run() {
-  const article = await getLatestArticle('https://matthewtole.com/feed.xml');
+  try {const config = await loadConfig();
+  const article = await getLatestArticle(config.feedUrl);
   const result = await renderTemplate('template.md', { article });
   await updateReadme(result);
+  } catch (ex) {
+    console.error(ex);
+  }
 }
 
 module.exports = {run};
