@@ -1,0 +1,23 @@
+{
+  "name": "dynamic-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewtole/dynamic-profile.git"
+  },
+  "author": "Matthew Tole <matthewtole@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewtole/dynamic-profile/issues"
+  },
+  "homepage": "https://github.com/matthewtole/dynamic-profile#readme",
+  "dependencies": {
+    "handlebars": "^4.7.6",
+    "rss-parser": "^3.9.0"
+  }
+}
