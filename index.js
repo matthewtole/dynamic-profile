@@ -18,10 +18,18 @@ async function getLatestArticle(url) {
   return feed.items[0];
 }
 
+async function updateReadme(contents) {
+  return new Promise(resolve => {
+    fs.writeFile('README.md', contents, (err) => {
+      resolve();
+    })
+  });
+}
+
 async function run() {
   const article = await getLatestArticle('https://matthewtole.com/feed.xml');
   const result = await renderTemplate('template.md', { article });
-  console.log(result);
+  await updateReadme(result);
 }
 
 module.exports = {run};
